@@ -2,37 +2,364 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  color: #5d5d5d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header */
+
+.header {
+  width: 100vw;
+  height: 80px;
+  box-sizing: border-box;
+
+  padding: 10px 50px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #5d5d5d;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headerWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 5%;
+  position: absolute;
+  left: 60px;
+  color: #1e1e1e;
+}
+
+.header input {
+  padding: 0px 15px;
+  color: grey;
+  font-size: 16px;
+  font-weight: 400;
+  height: 50px;
+  width: 460px;
+  border-radius: 20px;
+  border: 1px solid #8c8c8c;
+  align-self: center;
+  margin-left: 95px;
+
+  outline-color: #8c8c8c;
+}
+
+.header .divider {
+  height: 80px;
+  width: 1px;
+  background-color: #5d5d5d;
+  margin: 0 30px;
+}
+
+/* Menu */
+
+.menu {
+  box-sizing: border-box;
+  width: 250px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding: 30px 10px;
+  background-color: #f5f5f5;
+  color: #1e1e1e;
+  position: fixed;
+  top: 80px;
+  left: 0;
+
+  border-right: 1px solid #5d5d5d;
+
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.menu ul{
+  list-style: none;
+  width: 250px;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.menu li {
+  width: 70%;
+  height: 30px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;  
+}
+
+.menu li:not(:last-child) { 
+}
+
+.menu .btnLarge { 
+  margin-top: 10px;  
+}
+
+.menu .li .selected {
+  text-decoration: underline;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1e1e1e;
+  max-width: 70%;
+  text-align: start;
+}
+
+/* Buttons */
+
+.btnLarge {
+  height: 57px;
+  width: 180px;
+  background-color: #CFFF47;
+  font-size: 16px;
+  border-radius: 16px;
+  border: 1px solid #8c8c8c;
+}
+
+.btnSmall{
+  height: 30px;
+  width: 100px;
+  background-color: #CFFF47;
+  font-size: 12px;
+  border-radius: 9px;
+  border: none;
+  align-self: flex-end;
+}
+
+.btnIcon {
+  height: 30px;
+  width: 23px;
+  background-color: transparent;
+  font-size: 12px;
+  border-radius: 9px;
+  border: none;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.buttons button img {
+  height: 20px;
+  width: 20px;
+  color: #5d5d5d;
+}
+
+/* Table => boards*/
+
+.table {
+  padding: 0px 10%;
+  max-width: calc(100vw - 250px);
+  max-height: calc(100vh - 80px);
+  height: 100%;
+
+  position: fixed;
+  top: 80px;
+  left: 250px;
+  right: 0px;
+
+  background-color: #f8f8f8;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.board {
+  min-width: 30%;
+  min-height: 50%;
+  height: 78%;
+  width: 38%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board h2 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.boardName {
+  width: 100%;
+  min-height: 30px !important;
+  border-bottom: 1px solid #8c8c8c;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+.boardName span {
+  position: absolute;
+  right: 10px;
+}
+
+/* Task */
+
+.task {
+  min-height: 120px;
+  width: -webkit-fill-available;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 15px;
+  background-color: #f1f1f1;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.green {
+  background-color: #e6fae3;
+}
+
+.violet {
+  background-color: #f3ecfd;
+}
+
+.blue {
+  background-color: #e1f2fb;
+}
+
+.task .buttons {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+
+.task h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  max-width: 70%;
+  max-height: 40px;
+  overflow: hidden;
+} 
+
+.task p {
+  font-size: 14px;
+  font-weight: 400;
+  color: grey;
+  max-height: 72px;
+  overflow: hidden;
+}
+
+/*  Modal Style  */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #8c8c8c99;
+  z-index: 100;
+}
+
+.modalMain {
+  position: fixed;
+  background: white;
+  width: 350px;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #8c8c8c;
+  padding: 20px 20px;
+}
+
+.modalBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: -webkit-fill-available;
+}
+
+
+.modalMain h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.modal input {
+  padding: 0px 7px;
+  color: grey;
+  font-size: 12px;
+  font-weight: 400;
+  height: 30px;
+  width: -webkit-fill-available;
+  border-radius: 10px;
+  border: 1px solid #8c8c8c;
+
+  outline-color: #8c8c8c;
+}
+
+.modal textarea {
+  padding: 7px;
+  border-radius: 20px;
+  border-color: #8c8c8c;
+  width: -webkit-fill-available;
+  resize: none;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 10px;
+  outline-color: #8c8c8c;
+  margin-bottom: 10px;
+}
+
+.modal.display-block {
+  display: block;
+}
+
+.modal.display-none {
+  display: none;
 }
