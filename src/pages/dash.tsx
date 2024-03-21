@@ -1,7 +1,7 @@
 import React, { useEffect, DragEvent, useState } from 'react';
 import '../App.css';
 import { ITask } from '../models/ITask';
-import Task from '../components/Task';
+import Task from '../components/task';
 import { useParams } from 'react-router-dom';
 import { taskApi } from '../services/TaskService';
 import ModalTask from '../components/modalTask';
